@@ -12,29 +12,13 @@ import server from 'browser-sync';
 import del from 'del';
 import path from 'path';
 import child from 'child_process';
+import gulpConfig from './paths'
 
 const exec = child.exec;
 const argv = yargs.argv;
+
 const root = 'src/';
-const paths = {
-  dist: './dist/',
-  scripts: [`${root}/app/**/*.js`, `!${root}/app/**/*.spec.js`],
-  tests: `${root}/app/**/*.spec.js`,
-  styles: `${root}/sass/*.scss`,
-  templates: `${root}/app/**/*.html`,
-  modules: [
-    'angular/angular.js',
-    'angular-ui-router/release/angular-ui-router.js',
-    'firebase/firebase.js',
-    'angularfire/dist/angularfire.js',
-    'angular-loading-bar/build/loading-bar.min.js'
-  ],
-  static: [
-    `${root}/index.html`,
-    `${root}/fonts/**/*`,
-    `${root}/img/**/*`
-  ]
-};
+const paths = gulpConfig;
 
 server.create();
 
@@ -60,7 +44,13 @@ gulp.task('modules', ['templates'], () => {
     .pipe(gulp.dest(paths.dist + 'js/'));
 });
 
-gulp.task('styles', () => {
+gulp.task('moduleStyles', () => {
+  return gulp.src(paths.moduleStyles.map(item => 'node_modules/' + item))
+  .pipe(concat('vendor.css'))
+  .pipe(gulp.dest(paths.dist + 'css/'));
+});
+
+gulp.task('styles', ['moduleStyles'],() => {
   return gulp.src(paths.styles)
     .pipe(sass({outputStyle: 'compressed'}))
     .pipe(gulp.dest(paths.dist + 'css/'));
