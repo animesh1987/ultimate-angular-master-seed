@@ -176,6 +176,7 @@ root .loader {
 
 .auth h1 {
   margin: 0 0 10px;
+  text-align: center;
 }
 
 .auth label {
@@ -399,6 +400,11 @@ button.delete:active {
 
 .dynamic-input:focus {
   border-color: rgba(0, 133, 215, 1);
+}
+
+/*Auth form*/
+auth-form form{
+  padding-top: 10px;
 }
 
 @font-face {

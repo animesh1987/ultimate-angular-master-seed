@@ -1,0 +1,15 @@
+<div class="auth">
+  <h1>Register</h1>
+  <auth-form
+    user="$ctrl.user"
+    message="{{$ctrl.error}}"
+    button="Create user"
+    on-submit="$ctrl.createUser($event)"
+    ></auth-form>
+</div>
+
+<div class="auth__info">
+  <a class="md-primary" ui-sref="auth.login" md-theme="main">
+    Already have an account? Login here.
+  </a>
+</div>

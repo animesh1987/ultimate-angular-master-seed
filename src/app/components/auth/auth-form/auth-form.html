@@ -1,0 +1,25 @@
+<form name="authForm"
+      novalidate
+      ng-submit="$ctrl.submitForm()">
+  <md-input-container class="md-primary md-block" md-theme="main">
+    <label>Enter your email</label>
+    <input type="email" name="email" required="required" ng-model="$ctrl.user.email">
+  </md-input-container>
+
+  <md-input-container class="md-primary md-block" md-theme="main">
+    <label>Enter your password</label>
+    <input type="password" name="password" required="required" ng-model="$ctrl.user.password">
+  </md-input-container>
+
+  <div class="auth-button">
+    <md-button ng-disabled="authForm.$invalid"
+               type="submit"
+               class="md-primary md-raised" md-theme="main">
+      {{$ctrl.button}}
+    </md-button>
+  </div>
+
+  <div ng-if="$ctrl.message">
+    {{$ctrl.message}}
+  </div>
+</form>
