@@ -1,4 +1,4 @@
-function loginController(AuthService, $state){
+function loginController(AuthService, $state, ToastService, $timeout){
 
   var ctrl = this;
   ctrl.$onInit = function(){
@@ -14,9 +14,11 @@ function loginController(AuthService, $state){
       .login(event.user)
       .then(function(user){
         $state.go('app');
+        ToastService.showSuccessToast('Successfully logged in!', 'check_circle', 'top right', 3000);
         // redirect to a future state
       }, function(err){
-        ctrl.error = err.message;
+        ToastService.errorSuccessToast(err.message, 'warning', 'top right', 3000);
+        //ctrl.error = err.message;
       });
   };
 }

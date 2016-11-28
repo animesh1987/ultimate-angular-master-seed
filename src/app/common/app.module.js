@@ -6,7 +6,11 @@ angular
   ])
   .run(function ($transitions, cfpLoadingBar, $rootScope, $mdMedia) {
     $rootScope.$mdMedia = $mdMedia;
-    $transitions.onStart({}, cfpLoadingBar.start);
+
+    $transitions.onStart({}, function(){
+      console.log('starting now');
+      return cfpLoadingBar.start();
+    });
     $transitions.onSuccess({}, function(){
       return cfpLoadingBar.complete();
     });
