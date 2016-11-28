@@ -1,0 +1,20 @@
+<header class="header">
+  <div class="header__fixed">
+    <div class="header__brand">
+      Contacts
+      <md-button class="md-primary header__button header__button--new-contact" md-theme="main"
+      ><!--ui-sref=""-->
+        <md-icon class="material-icons">add_circle_outline</md-icon>
+        New Contact
+      </md-button>
+    </div>
+
+    <div class="header__logout">
+      {{::$ctrl.user.email}}
+      <md-button class="md-warn header__button" md-theme="main" ng-click="$ctrl.onLogout()">
+        <md-icon class="material-icons">power_settings_new</md-icon>
+        Logout
+      </md-button>
+    </div>
+  </div>
+</header>

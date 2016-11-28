@@ -1,4 +1,4 @@
-function registerController(AuthService){
+function registerController(AuthService, $state){
 
   var ctrl = this;
 
@@ -15,8 +15,7 @@ function registerController(AuthService){
       .register(event.user)
       .then(function(user){
         console.log('User:', user);
-        // refirect to a future state
-        //$ctrl.user = response;
+        $state.go('app');
       }, function(err){
         ctrl.error = err.message;
       });
