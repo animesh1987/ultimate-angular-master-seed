@@ -1,0 +1,101 @@
+<div class="contact">
+  <form name="contactDetailFrom" novalidate>
+
+    <div>
+      <span class="contact__required">*</span> field is required
+    </div>
+
+    <div layout="row">
+      <md-card class="contact__box padding-15">
+        <h3 class="contact__sub-title">
+          Personal
+        </h3>
+
+        <md-input-container class="md-primary md-block md-icon-float contact__field margin-top-20" md-theme="main">
+          <label>Name</label>
+          <md-icon>person</md-icon>
+          <input type="text" name="name" required ng-model="$ctrl.contact.name">
+          <div ng-messages="contactDetailForm.name.$error">
+            <div ng-message="required">
+              Contact must have a name!
+            </div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="md-primary md-block md-icon-float contact__field" md-theme="main">
+          <label>Email</label>
+          <md-icon>email</md-icon>
+          <input type="email" name="email" ng-model="$ctrl.contact.email" ng-pattern="/^.+@.+\..+$/">
+          <div ng-messages="contactDetailForm.email.$error.email" role="alert" >
+            <div ng-message="pattern">
+              You must enter a valid email address.
+            </div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="md-primary md-block md-icon-float contact__field" md-theme="main">
+          <label>Job Title</label>
+          <md-icon>business</md-icon>
+          <input type="text" name="jobTitle" ng-model="$ctrl.contact.job" >
+        </md-input-container>
+
+        <md-input-container class="md-primary md-block md-icon-float contact__field" md-theme="main">
+          <label>Location</label>
+          <md-icon>location_on</md-icon>
+          <input type="text" name="location" ng-model="$ctrl.contact.location" >
+        </md-input-container>
+
+      </md-card>
+
+      <md-card class="contact__box padding-15">
+        <h3 class="contact__sub-title">
+          Social
+        </h3>
+
+        <md-input-container class="md-primary md-block contact__field margin-top-20" md-theme="main">
+          <label>Facebook</label>
+          <!--<md-icon>location</md-icon>-->
+          <input type="text" name="location" ng-model="$ctrl.contact.social.facebook" >
+        </md-input-container>
+
+        <md-input-container class="md-primary md-block contact__field" md-theme="main">
+          <label>GitHub</label>
+          <!--<md-icon>location</md-icon>-->
+          <input type="text" name="github" ng-model="$ctrl.contact.social.github" >
+        </md-input-container>
+
+        <md-input-container class="md-primary md-block contact__field" md-theme="main">
+          <label>Twitter</label>
+          <!--<md-icon>location</md-icon>-->
+          <input type="text" name="twitter" ng-model="$ctrl.contact.social.twitter" >
+        </md-input-container>
+
+        <md-input-container class="md-primary md-block contact__field" md-theme="main">
+          <label>Linkedin</label>
+          <!--<md-icon>location</md-icon>-->
+          <input type="text" name="linkedin" ng-model="$ctrl.contact.social.linkedin" >
+        </md-input-container>
+
+      </md-card>
+    </div>
+
+    <div ng-if="$ctrl.isNewContact">
+      <md-button class="md-primary md-raised" md-theme="main"
+                 ng-click="$ctrl.saveContact()"
+                 ng-disabled="contactDetailForm.$invalid">
+        <md-icon>add</md-icon>
+        Create Contact
+      </md-button>
+    </div>
+
+    <div ng-if="!$ctrl.isNewContact">
+      <md-button class="md-warn md-raised" md-theme="main"
+                 ng-click="$ctrl.deleteContact()">
+        <md-icon>add</md-icon>
+        Create Contact
+      </md-button>
+    </div>
+
+
+  </form>
+</div>

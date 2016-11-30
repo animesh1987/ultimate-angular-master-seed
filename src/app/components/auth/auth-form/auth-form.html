@@ -1,13 +1,15 @@
 <form name="authForm"
       novalidate
       ng-submit="$ctrl.submitForm()">
-  <md-input-container class="md-primary md-block" md-theme="main">
+  <md-input-container class="md-primary md-block md-icon-float" md-theme="main">
     <label>Enter your email</label>
+    <md-icon>email</md-icon>
     <input type="email" name="email" required="required" ng-model="$ctrl.user.email">
   </md-input-container>
 
-  <md-input-container class="md-primary md-block" md-theme="main">
+  <md-input-container class="md-primary md-block md-icon-float" md-theme="main">
     <label>Enter your password</label>
+    <md-icon>vpn_key</md-icon>
     <input type="password" name="password" required="required" ng-model="$ctrl.user.password">
   </md-input-container>
 

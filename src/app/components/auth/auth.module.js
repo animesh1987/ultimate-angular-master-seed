@@ -38,7 +38,5 @@ angular
         $state.target('app');
       }
     });
-
-
   });
 

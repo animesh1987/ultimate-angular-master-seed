@@ -1,15 +1,16 @@
-<header class="header">
-  <div class="header__fixed">
+<md-toolbar class="md-whiteframe-1dp header__fixed">
+  <div class="md-toolbar-tools" layout="row">
     <div class="header__brand">
       Contacts
       <md-button class="md-primary header__button header__button--new-contact" md-theme="main"
-      ><!--ui-sref=""-->
+      ui-sref="new">
         <md-icon class="material-icons">add_circle_outline</md-icon>
         New Contact
       </md-button>
     </div>
 
-    <div class="header__logout">
+    <span flex></span>
+    <div>
       {{::$ctrl.user.email}}
       <md-button class="md-warn header__button" md-theme="main" ng-click="$ctrl.onLogout()">
         <md-icon class="material-icons">power_settings_new</md-icon>
@@ -17,4 +18,4 @@
       </md-button>
     </div>
   </div>
-</header>
+</md-toolbar>

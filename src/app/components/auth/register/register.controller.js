@@ -1,4 +1,4 @@
-function registerController(AuthService, $state){
+function registerController(AuthService, $state, ToastService){
 
   var ctrl = this;
 
@@ -14,10 +14,10 @@ function registerController(AuthService, $state){
     return AuthService
       .register(event.user)
       .then(function(user){
-        console.log('User:', user);
+        ToastService.showSuccessToast('Successfully Registered!', 'check_circle', 'top right', 3000);
         $state.go('app');
       }, function(err){
-        ctrl.error = err.message;
+        ToastService.errorSuccessToast(err.message, 'warning', 'top right', 3000);
       });
   };
 }
