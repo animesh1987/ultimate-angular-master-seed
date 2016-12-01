@@ -14,7 +14,16 @@
         <md-input-container class="md-primary md-block md-icon-float contact__field margin-top-20" md-theme="main">
           <label>Name</label>
           <md-icon>person</md-icon>
-          <input type="text" name="name" required ng-model="$ctrl.contact.name">
+          <input type="text" name="name"
+                 ng-model-options="{
+                    updateOn: 'default blur',
+                    'debounce': {
+                       'default': 250,
+                       'blur': 0
+                    }
+                 }"
+                 ng-change="$ctrl.updateContact()"
+                 required ng-model="$ctrl.contact.name">
           <div ng-messages="contactDetailForm.name.$error">
             <div ng-message="required">
               Contact must have a name!
@@ -25,7 +34,16 @@
         <md-input-container class="md-primary md-block md-icon-float contact__field" md-theme="main">
           <label>Email</label>
           <md-icon>email</md-icon>
-          <input type="email" name="email" ng-model="$ctrl.contact.email" ng-pattern="/^.+@.+\..+$/">
+          <input type="email" name="email"
+                 ng-model-options="{
+                    updateOn: 'default blur',
+                    'debounce': {
+                       'default': 250,
+                       'blur': 0
+                    }
+                 }"
+                 ng-change="$ctrl.updateContact()"
+                 ng-model="$ctrl.contact.email" ng-pattern="/^.+@.+\..+$/">
           <div ng-messages="contactDetailForm.email.$error.email" role="alert" >
             <div ng-message="pattern">
               You must enter a valid email address.
@@ -36,13 +54,31 @@
         <md-input-container class="md-primary md-block md-icon-float contact__field" md-theme="main">
           <label>Job Title</label>
           <md-icon>business</md-icon>
-          <input type="text" name="jobTitle" ng-model="$ctrl.contact.job" >
+          <input type="text" name="jobTitle"
+                 ng-model-options="{
+                    updateOn: 'default blur',
+                    'debounce': {
+                       'default': 250,
+                       'blur': 0
+                    }
+                 }"
+                 ng-change="$ctrl.updateContact()"
+                 ng-model="$ctrl.contact.job" >
         </md-input-container>
 
         <md-input-container class="md-primary md-block md-icon-float contact__field" md-theme="main">
           <label>Location</label>
           <md-icon>location_on</md-icon>
-          <input type="text" name="location" ng-model="$ctrl.contact.location" >
+          <input type="text" name="location"
+                 ng-model-options="{
+                    updateOn: 'default blur',
+                    'debounce': {
+                       'default': 250,
+                       'blur': 0
+                    }
+                 }"
+                 ng-change="$ctrl.updateContact()"
+                 ng-model="$ctrl.contact.location" >
         </md-input-container>
 
       </md-card>
@@ -55,25 +91,61 @@
         <md-input-container class="md-primary md-block contact__field margin-top-20" md-theme="main">
           <label>Facebook</label>
           <!--<md-icon>location</md-icon>-->
-          <input type="text" name="location" ng-model="$ctrl.contact.social.facebook" >
+          <input type="text" name="location"
+                 ng-model-options="{
+                    updateOn: 'default blur',
+                    'debounce': {
+                       'default': 250,
+                       'blur': 0
+                    }
+                 }"
+                 ng-change="$ctrl.updateContact()"
+                 ng-model="$ctrl.contact.social.facebook" >
         </md-input-container>
 
         <md-input-container class="md-primary md-block contact__field" md-theme="main">
           <label>GitHub</label>
           <!--<md-icon>location</md-icon>-->
-          <input type="text" name="github" ng-model="$ctrl.contact.social.github" >
+          <input type="text" name="github"
+                 ng-model-options="{
+                    updateOn: 'default blur',
+                    'debounce': {
+                       'default': 250,
+                       'blur': 0
+                    }
+                 }"
+                 ng-change="$ctrl.updateContact()"
+                 ng-model="$ctrl.contact.social.github" >
         </md-input-container>
 
         <md-input-container class="md-primary md-block contact__field" md-theme="main">
           <label>Twitter</label>
           <!--<md-icon>location</md-icon>-->
-          <input type="text" name="twitter" ng-model="$ctrl.contact.social.twitter" >
+          <input type="text" name="twitter"
+                 ng-model-options="{
+                    updateOn: 'default blur',
+                    'debounce': {
+                       'default': 250,
+                       'blur': 0
+                    }
+                 }"
+                 ng-change="$ctrl.updateContact()"
+                 ng-model="$ctrl.contact.social.twitter" >
         </md-input-container>
 
         <md-input-container class="md-primary md-block contact__field" md-theme="main">
           <label>Linkedin</label>
           <!--<md-icon>location</md-icon>-->
-          <input type="text" name="linkedin" ng-model="$ctrl.contact.social.linkedin" >
+          <input type="text" name="linkedin"
+                 ng-model-options="{
+                    updateOn: 'default blur',
+                    'debounce': {
+                       'default': 250,
+                       'blur': 0
+                    }
+                 }"
+                 ng-change="$ctrl.updateContact()"
+                 ng-model="$ctrl.contact.social.linkedin" >
         </md-input-container>
 
       </md-card>
@@ -90,9 +162,9 @@
 
     <div ng-if="!$ctrl.isNewContact">
       <md-button class="md-warn md-raised" md-theme="main"
-                 ng-click="$ctrl.deleteContact()">
-        <md-icon>add</md-icon>
-        Create Contact
+                 ng-click="$ctrl.deleteContact($event)">
+        <md-icon>delete</md-icon>
+        Delete Contact
       </md-button>
     </div>
 

@@ -1,4 +1,4 @@
-function ContactNewController(ContactService, ToastService){
+function ContactNewController(ContactService, ToastService, $state){
   var ctrl = this;
 
   ctrl.$onInit = function () {
@@ -21,8 +21,8 @@ function ContactNewController(ContactService, ToastService){
     return ContactService
       .createNewContact(event.contact)
       .then(function (contact) {
-        console.log(contact);
         ToastService.showSuccessToast('Contact Created!', 'check_circle', 'top right', 3000);
+        $state.go('contact', {id: contact.key});
       })
   }
 }
