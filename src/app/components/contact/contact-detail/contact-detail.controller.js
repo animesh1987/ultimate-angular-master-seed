@@ -2,7 +2,7 @@ function ContactDetailController(){
   var ctrl = this;
 
   ctrl.$onInit = function () {
-    console.log('bbbbb')
+    ctrl.showTip = true;
     ctrl.isNewContact = !ctrl.contact.$id;
   };
 
@@ -29,6 +29,11 @@ function ContactDetailController(){
         event: event
       }
     });
+  };
+
+  ctrl.tagChange = function (event) {
+    ctrl.contact.tag = event.tag;
+    ctrl.updateContact();
   };
 
 }

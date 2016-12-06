@@ -151,20 +151,25 @@
       </md-card>
     </div>
 
+    <contact-tag
+      tag="$ctrl.contact.tag"
+      on-change="$ctrl.tagChange($event)">
+    </contact-tag>
+
     <div ng-if="$ctrl.isNewContact">
-      <md-button class="md-primary md-raised" md-theme="main"
+      <md-button class="md-primary md-raised md-fab floating-main-fab" md-theme="main"
                  ng-click="$ctrl.saveContact()"
                  ng-disabled="contactDetailForm.$invalid">
         <md-icon>add</md-icon>
-        Create Contact
+        <md-tooltip md-direction="left" md-visible="$ctrl.showTip">Create Contact</md-tooltip>
       </md-button>
     </div>
 
     <div ng-if="!$ctrl.isNewContact">
-      <md-button class="md-warn md-raised" md-theme="main"
+      <md-button class="md-warn md-raised md-fab floating-main-fab" md-theme="main"
                  ng-click="$ctrl.deleteContact($event)">
+        <md-tooltip md-direction="left" md-visible="$ctrl.showTip">Delete Contact</md-tooltip>
         <md-icon>delete</md-icon>
-        Delete Contact
       </md-button>
     </div>
 

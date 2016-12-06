@@ -1,0 +1,14 @@
+<md-card class="contact__field" flex="100">
+  <label>Tag</label>
+
+  <ul layout="row" layout-wrap layout-align="center center" layout-padding>
+    <li ng-repeat="tag in ::$ctrl.tags"
+      class="contact-card__pill contact-card__pill--{{ tag }}"
+      ng-class="{'contact__pill--active': $ctrl.tag == tag}"
+    >
+      <md-button ng-click="$ctrl.updateTag(tag)">
+        {{ ::tag }}
+      </md-button>
+    </li>
+  </ul>
+</md-card>

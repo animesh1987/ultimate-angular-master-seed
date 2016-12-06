@@ -23,6 +23,9 @@ function ContactNewController(ContactService, ToastService, $state){
       .then(function (contact) {
         ToastService.showSuccessToast('Contact Created!', 'check_circle', 'top right', 3000);
         $state.go('contact', {id: contact.key});
+      }, function (err) {
+        console.log(err);
+        ToastService.errorSuccessToast(err.message, 'warning', 'top right', 3000);
       })
   }
 }
