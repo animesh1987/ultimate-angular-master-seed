@@ -15,6 +15,9 @@ function ContactService (AuthService, $firebaseRef, $firebaseArray, $firebaseObj
     },
     deleteContact: function (contact) {
       return contact.$remove();
+    },
+    getContactList: function () {
+      return $firebaseArray(ref.child(uid));
     }
   }
 }

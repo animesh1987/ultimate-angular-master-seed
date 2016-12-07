@@ -8,7 +8,7 @@ angular.module('common')
   .config(function ($stateProvider) {
     $stateProvider
       .state('app', {
-        //redirectTo: 'contacts'
+        redirectTo: 'contacts',
         url: '/app',
         data: {
           requiredAuth: true

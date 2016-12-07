@@ -1,0 +1,15 @@
+<div class="contacts">
+  <ul class="contacts-list">
+    <li ng-repeat="contact in $ctrl.contacts">
+      <contact
+        contact="contact"
+        on-select="$ctrl.goToContact($event)">
+      </contact>
+    </li>
+  </ul>
+
+  <div ng-if="!$ctrl.contacts.length" class="contact__empty">
+    <md-icon>face</md-icon>
+    There is no one here yet!!
+  </div>
+</div>
