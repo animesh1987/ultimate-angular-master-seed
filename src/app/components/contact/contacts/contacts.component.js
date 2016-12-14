@@ -1,6 +1,7 @@
 var contacts = {
   bindings: {
-    contacts: '<'
+    contacts: '<',
+    filter: '<'
   },
   templateUrl: './contacts.html',
   controller: 'ContactsController'
@@ -14,14 +15,22 @@ angular
     $stateProvider
       .state('contacts', {
         parent: 'app',
-        url: '/contacts',
+        url: '/contacts?filter',
         data: {
           requiredAuth: true
+        },
+        params: {
+          filter: {
+            value: 'none'
+          }
         },
         component: 'contacts',
         resolve: {
           contacts: function (ContactService) {
             return ContactService.getContactList().$loaded();
+          },
+          filter: function ($transition$) {
+            return $transition$.params();
           }
         }
       });

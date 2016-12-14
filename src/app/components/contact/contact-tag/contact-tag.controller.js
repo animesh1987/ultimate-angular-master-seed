@@ -9,7 +9,6 @@ function ContactTagController(){
 
   ctrl.$onChanges = function (changes) {
     if(changes.tag){
-      console.log (ctrl.tag);
       ctrl.tag = angular.copy(ctrl.tag);
     }
   };
