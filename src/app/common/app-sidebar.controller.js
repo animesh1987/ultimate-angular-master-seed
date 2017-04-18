@@ -26,6 +26,14 @@ function AppSidebarController($rootScope){
     state: 'following'
   }];
 
+  ctrl.todoTags = [
+    {
+      label: `TO-DO's`,
+      icon: 'remove_red_eye',
+      state: 'todos'
+    }
+  ];
+
 
 };
 

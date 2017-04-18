@@ -1,9 +1,13 @@
 var appNav = {
   bindings: {
     user: '<',
+    state: '<',
     onLogout: '&'
   },
-  templateUrl: './app-nav.html'
+  templateUrl: './app-nav.html',
+  controller: function () {
+    console.log('nav ctrl', this);
+  }
 }
 
 

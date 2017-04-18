@@ -1,7 +1,11 @@
 function AppController(AuthService, $state){
   var ctrl = this;
 
+  console.log(ctrl.state);
+
   ctrl.user = AuthService.getUser();
+
+  ctrl.state = $state;
 
   ctrl.logout = function () {
     AuthService.logout().then(function () {

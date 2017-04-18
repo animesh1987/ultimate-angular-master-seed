@@ -20,6 +20,17 @@
         {{::item.label}}
       </a>
     </li>
+
+    <li class="sidebar__item"
+        ng-repeat="item in ::$ctrl.todoTags">
+      <a class="sidebar__link"
+         ui-sref="todos"
+         ui-sref-active-eq="sidebar__link--active">
+        <md-icon>{{ ::item.icon }}</md-icon>
+        {{::item.label}}
+      </a>
+    </li>
+
   </ul>
 
 </md-sidenav>
